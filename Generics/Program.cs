@@ -18,6 +18,19 @@ namespace Generics
             GenericCounter<int>.Display();
             GenericCounter<int>.Increment();
             GenericCounter<int>.Display();
+            //Value types can not be null. Nullable<int> or int? can be used for this.
+            int? number1=null;
+            int number2 = 100;
+            //number1.GetValueOrDefault();
+            //number1.GetValueOrDefault(5);
+            if (number1.HasValue)
+            {
+                number2 *= (int)number1;
+            }
+            Nullable<int> noValue = new Nullable<int>();
+            //Console.WriteLine(noValue.GetType()); // null reference exception.
+            Nullable<int> noValue2 = new Nullable<int>(5);
+            Console.WriteLine(noValue2.GetType());
         }
         static StringCollection GenerateNames()
         {
